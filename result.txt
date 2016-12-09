@@ -1,0 +1,24 @@
+Falsifying example: test_it(s='\n')
+'\n'
+Traceback (most recent call last):
+  File "test_astropy_table_crash.py", line 31, in <module>
+    test_it()
+  File "test_astropy_table_crash.py", line 20, in test_it
+    def test_it(s):
+  File "/Users/deil/Library/Python/3.5/lib/python/site-packages/hypothesis/core.py", line 524, in wrapped_test
+    print_example=True, is_final=True
+  File "/Users/deil/Library/Python/3.5/lib/python/site-packages/hypothesis/executors.py", line 58, in default_new_style_executor
+    return function(data)
+  File "/Users/deil/Library/Python/3.5/lib/python/site-packages/hypothesis/core.py", line 111, in run
+    return test(*args, **kwargs)
+  File "test_astropy_table_crash.py", line 23, in test_it
+    FastCsv().read(s)
+  File "/Users/deil/Library/Python/3.5/lib/python/site-packages/astropy/io/ascii/fastbasic.py", line 116, in read
+    return Table(data, names=list(self.engine.get_names()), meta=meta)
+  File "/Users/deil/Library/Python/3.5/lib/python/site-packages/astropy/table/table.py", line 377, in __init__
+    init_func(data, names, dtype, n_cols, copy)
+  File "/Users/deil/Library/Python/3.5/lib/python/site-packages/astropy/table/table.py", line 648, in _init_from_list
+    self._init_from_cols(cols)
+  File "/Users/deil/Library/Python/3.5/lib/python/site-packages/astropy/table/table.py", line 713, in _init_from_cols
+    .format(lengths))
+ValueError: Inconsistent data column lengths: set()
